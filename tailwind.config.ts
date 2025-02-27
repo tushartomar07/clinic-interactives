@@ -70,9 +70,13 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Lato", "Inter var", "sans-serif"],
-        display: ["Satoshi", "sans-serif"],
+        sans: ["Open Sans", "Inter", "sans-serif"],
+        display: ["Satoshi", "Roboto", "sans-serif"],
+        body: ["Open Sans", "Lato", "sans-serif"],
+        mono: ["SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
         lato: ["Lato", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        opensans: ["Open Sans", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
