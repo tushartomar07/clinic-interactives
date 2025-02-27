@@ -18,4 +18,27 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Helmet>
-      <title>Server Clinic -
+      <title>Server Clinic - Networking Solutions & Software Development</title>
+      <meta name="description" content="Server Clinic provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
+    </Helmet>
+    <TooltipProvider>
+      <BrowserRouter>
+        <AnimatePresence mode="wait">
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Index />} />
+              <Route path="services" element={<Services />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </AnimatePresence>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
