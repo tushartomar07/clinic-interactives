@@ -70,8 +70,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Inter var", "sans-serif"],
+        sans: ["Lato", "Inter var", "sans-serif"],
         display: ["Satoshi", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
