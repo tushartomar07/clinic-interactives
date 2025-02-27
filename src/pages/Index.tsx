@@ -1,13 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from "react";
+import HeroSection from "@/components/home/HeroSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import FeaturesSection from "@/components/home/FeaturesSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import ContactCTA from "@/components/home/ContactCTA";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Helmet>
+        <title>Server Clinic - Networking Solutions & Software Development</title>
+        <meta name="description" content="Server Clinic provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
+      </Helmet>
+      
+      <HeroSection />
+      <ServicesSection />
+      <FeaturesSection />
+      <TestimonialsSection />
+      <ContactCTA />
+    </motion.div>
   );
 };
 
