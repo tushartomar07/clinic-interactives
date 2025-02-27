@@ -82,8 +82,25 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-body;
+    @apply bg-background text-foreground antialiased font-body relative;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 30% 10%, rgba(188, 218, 255, 0.3) 0%, rgba(188, 218, 255, 0) 40%),
+      radial-gradient(circle at 80% 30%, rgba(157, 189, 255, 0.3) 0%, rgba(157, 189, 255, 0) 45%),
+      radial-gradient(circle at 40% 70%, rgba(176, 203, 237, 0.3) 0%, rgba(176, 203, 237, 0) 50%),
+      radial-gradient(circle at 90% 85%, rgba(130, 185, 255, 0.3) 0%, rgba(130, 185, 255, 0) 40%),
+      linear-gradient(180deg, rgba(240, 245, 255, 0.5) 0%, rgba(230, 240, 255, 0.2) 100%);
+    z-index: -1;
+    pointer-events: none;
   }
 
   html {
@@ -101,6 +118,15 @@
   code, pre {
     @apply font-mono;
   }
+}
+
+.dark body::before {
+  background: 
+    radial-gradient(circle at 30% 10%, rgba(45, 76, 120, 0.3) 0%, rgba(45, 76, 120, 0) 40%),
+    radial-gradient(circle at 80% 30%, rgba(38, 61, 102, 0.3) 0%, rgba(38, 61, 102, 0) 45%),
+    radial-gradient(circle at 40% 70%, rgba(32, 52, 89, 0.3) 0%, rgba(32, 52, 89, 0) 50%),
+    radial-gradient(circle at 90% 85%, rgba(27, 42, 72, 0.3) 0%, rgba(27, 42, 72, 0) 40%),
+    linear-gradient(180deg, rgba(17, 23, 41, 0.5) 0%, rgba(15, 20, 35, 0.2) 100%);
 }
 
 @layer utilities {
@@ -126,6 +152,23 @@
   
   .hover-card {
     @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-md;
+  }
+
+  .cloud-bg {
+    position: relative;
+  }
+
+  .cloud-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='smallGrid' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 80 0 L 0 0 0 80' fill='none' stroke='rgba(119, 149, 197, 0.05)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23smallGrid)'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
