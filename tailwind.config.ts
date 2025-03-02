@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,6 +62,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        blue: {
+          500: "#0056B3",
+          600: "#004B9A",
+        },
+        cyan: {
+          400: "#00D1FF",
+          500: "#00BADF",
+        },
+        darkgray: {
+          900: "#1E1E1E",
+          800: "#222222",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -70,13 +81,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Open Sans", "Inter", "sans-serif"],
-        display: ["Satoshi", "Roboto", "sans-serif"],
-        body: ["Open Sans", "Lato", "sans-serif"],
+        sans: ["Montserrat", "Inter", "sans-serif"],
+        display: ["Montserrat", "Roboto", "sans-serif"],
+        body: ["Roboto", "Open Sans", "sans-serif"],
         mono: ["SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
-        lato: ["Lato", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
-        opensans: ["Open Sans", "sans-serif"],
+      },
+      boxShadow: {
+        glow: "0 0 20px rgba(0, 209, 255, 0.4)",
+        "glow-lg": "0 0 30px rgba(0, 209, 255, 0.3)",
       },
       keyframes: {
         "accordion-down": {
