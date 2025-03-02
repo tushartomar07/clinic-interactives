@@ -17,8 +17,8 @@ const Index = () => {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>Server Clinic - Networking Solutions & Software Development</title>
-        <meta name="description" content="Server Clinic provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
+        <title>ByteSpher - Networking Solutions & Software Development</title>
+        <meta name="description" content="ByteSpher provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
       </Helmet>
       
       <HeroSection />

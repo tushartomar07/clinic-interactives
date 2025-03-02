@@ -63,8 +63,8 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       details: [
-        "info@serverclinic.com",
-        "support@serverclinic.com"
+        "info@bytespher.com",
+        "support@bytespher.com"
       ]
     },
     {
@@ -93,8 +93,8 @@ const Contact = () => {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>Contact Us - Server Clinic</title>
-        <meta name="description" content="Get in touch with Server Clinic. Contact our team for inquiries about our networking solutions, software development services, and managed IT services." />
+        <title>Contact Us - ByteSpher</title>
+        <meta name="description" content="Get in touch with ByteSpher. Contact our team for inquiries about our networking solutions, software development services, and managed IT services." />
       </Helmet>
 
       <section className="pt-32 pb-20 relative">

@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
-              Server<span className="opacity-80">Clinic</span>
+              Byte<span className="opacity-80">Spher</span>
             </div>
             <p className="text-primary-foreground/80 max-w-xs">
               Enterprise-grade networking solutions and software development services for businesses of all sizes.
@@ -69,7 +69,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-2 flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@serverclinic.com</span>
+                <span className="text-primary-foreground/80">info@bytespher.com</span>
               </li>
             </ul>
           </div>
@@ -95,7 +95,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-primary-foreground/70 text-sm">
-              &copy; {new Date().getFullYear()} Server Clinic. All rights reserved.
+              &copy; {new Date().getFullYear()} ByteSpher. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-primary-foreground/70 text-sm hover:text-primary-foreground transition-colors duration-200">

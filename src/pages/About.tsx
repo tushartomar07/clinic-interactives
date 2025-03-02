@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -10,7 +9,7 @@ const team = [
     name: "John Anderson",
     position: "CEO & Founder",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    bio: "With over 20 years of experience in enterprise IT, John founded Server Clinic to provide businesses with high-quality networking and software solutions."
+    bio: "With over 20 years of experience in enterprise IT, John founded ByteSpher to provide businesses with high-quality networking and software solutions."
   },
   {
     name: "Sarah Martinez",
@@ -83,8 +82,8 @@ const About = () => {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>About Us - Server Clinic</title>
-        <meta name="description" content="Learn about Server Clinic, our mission, values, and the team behind our enterprise IT solutions and services." />
+        <title>About Us - ByteSpher</title>
+        <meta name="description" content="Learn about ByteSpher, our mission, values, and the team behind our enterprise IT solutions and services." />
       </Helmet>
 
       <section className="pt-32 pb-20 relative">
@@ -119,7 +118,7 @@ const About = () => {
                 Empowering Businesses Through Technology
               </h2>
               <p className="text-lg text-muted-foreground">
-                Founded in 2010, Server Clinic was established with a clear mission: to provide 
+                Founded in 2010, ByteSpher was established with a clear mission: to provide 
                 businesses with enterprise-grade IT solutions that drive growth and innovation. 
                 What started as a small consulting firm has grown into a comprehensive IT 
                 services provider serving clients across multiple industries.
@@ -130,7 +129,7 @@ const About = () => {
                 to deliver tailored solutions that address the unique challenges our clients face.
               </p>
               <p className="text-lg text-muted-foreground">
-                Today, Server Clinic continues to evolve and expand our service offerings to 
+                Today, ByteSpher continues to evolve and expand our service offerings to 
                 meet the changing technology landscape, always with a focus on quality, 
                 reliability, and exceptional customer service.
               </p>

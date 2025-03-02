@@ -138,7 +138,7 @@ const Services = () => {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>Services - Server Clinic</title>
+        <title>Services - ByteSpher</title>
         <meta name="description" content="Explore our comprehensive IT services including networking solutions, software development, server management, cybersecurity, cloud services, and managed IT." />
       </Helmet>
 

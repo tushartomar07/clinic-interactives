@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="full-width-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <div className="font-display text-2xl font-bold text-primary">
-            Server<span className="text-primary/80">Clinic</span>
+            Byte<span className="text-primary/80">Spher</span>
           </div>
         </Link>
 
