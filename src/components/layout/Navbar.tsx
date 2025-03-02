@@ -35,20 +35,42 @@ export default function Navbar() {
   useEffect(() => {
     // Close mobile menu when navigating
     setIsMenuOpen(false);
-  }, [location]);
+    
+    // Prevent scrolling when menu is open on mobile
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [location, isMenuOpen]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('button[aria-label="Toggle menu"]')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "py-4 bg-background/80 backdrop-blur-lg border-b border-secondary/10"
-          : "py-6 bg-transparent"
+          ? "py-3 bg-background/80 backdrop-blur-lg border-b border-secondary/10"
+          : "py-4 md:py-6 bg-transparent"
       )}
     >
       <div className="full-width-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <div className="font-display text-2xl font-bold">
+          <div className="font-display text-xl sm:text-2xl font-bold">
             <span className="text-white">Byte</span>
             <span className="text-secondary glow-text">Spher</span>
           </div>
@@ -94,36 +116,39 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 pt-20 px-4 lg:hidden transition-all duration-300 ease-in-out",
+          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 lg:hidden transition-all duration-300 ease-in-out mobile-menu-container overflow-auto",
           isMenuOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full pointer-events-none"
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-[-100%] pointer-events-none"
         )}
       >
-        <nav className="flex flex-col space-y-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={cn(
-                "text-xl font-medium py-2 border-b border-secondary/20",
-                location.pathname === item.path
-                  ? "text-secondary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="flex flex-col space-y-4 pt-4">
-            <Button variant="outline" size="lg" className="border-secondary/50 text-secondary hover:bg-secondary/10">
-              Login
-            </Button>
-            <Button size="lg" className="cyber-button">
-              Free Consultation
-            </Button>
-          </div>
-        </nav>
+        <div className="pt-20 px-6 pb-8 h-full flex flex-col">
+          <nav className="flex flex-col space-y-6 flex-grow">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "text-lg font-medium py-3 border-b border-secondary/20 flex items-center",
+                  location.pathname === item.path
+                    ? "text-secondary"
+                    : "text-muted-foreground"
+                )}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex flex-col space-y-4 mt-auto pt-6">
+              <Button variant="outline" size="lg" className="w-full border-secondary/50 text-secondary hover:bg-secondary/10">
+                Login
+              </Button>
+              <Button size="lg" className="w-full cyber-button">
+                Free Consultation
+              </Button>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
