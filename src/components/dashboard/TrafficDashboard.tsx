@@ -10,9 +10,10 @@ import {
   Compass, 
   Clock, 
   BarChart, 
-  PieChart, 
+  PieChart as PieChartIcon, 
   Database 
 } from 'lucide-react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import TrafficOverview from './TrafficOverview';
 import TrafficCharts from './TrafficCharts';
 import TrafficTable from './TrafficTable';
@@ -169,13 +170,32 @@ const TrafficDashboard = () => {
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="flex justify-center items-center h-[300px]">
-                    <PieChart 
-                      width={300} 
-                      height={300} 
-                      data={referrerData}
-                      nameKey="name"
-                      dataKey="value"
-                    />
+                    <ResponsiveContainer width="100%" height={300}>
+                      <PieChart>
+                        <Pie
+                          data={referrerData}
+                          cx="50%"
+                          cy="50%"
+                          labelLine={false}
+                          outerRadius={100}
+                          fill="#8884d8"
+                          dataKey="value"
+                          nameKey="name"
+                          label={({name, percent}) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                        >
+                          {referrerData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#00D1FF', '#0056B3'][index % 7]} />
+                          ))}
+                        </Pie>
+                        <Tooltip 
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(16, 18, 26, 0.9)', 
+                            borderColor: '#333',
+                            color: '#fff'
+                          }} 
+                        />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
                   
                   <div className="space-y-4">
