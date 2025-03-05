@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import { Helmet } from "react-helmet";
 import { AnimatePresence } from "framer-motion";
@@ -18,8 +19,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Helmet>
-      <title>Server Clinic - Networking Solutions & Software Development</title>
-      <meta name="description" content="Server Clinic provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
+      <title>ByteSpher - Networking Solutions & Software Development</title>
+      <meta name="description" content="ByteSpher provides enterprise-grade networking solutions, software development services, and managed IT services for businesses of all sizes." />
     </Helmet>
     <TooltipProvider>
       <BrowserRouter>
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="services" element={<Services />} />
               <Route path="about" element={<About />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="dashboard" element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

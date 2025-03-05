@@ -1,15 +1,15 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, BarChart } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
+  { name: "Dashboard", path: "/dashboard", icon: BarChart },
 ];
 
 export default function Navbar() {
@@ -33,10 +33,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu when navigating
     setIsMenuOpen(false);
     
-    // Prevent scrolling when menu is open on mobile
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -44,7 +42,6 @@ export default function Navbar() {
     }
   }, [location, isMenuOpen]);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -76,19 +73,19 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-secondary",
+                "text-sm font-medium transition-colors hover:text-secondary flex items-center gap-1",
                 location.pathname === item.path
                   ? "text-secondary"
                   : "text-muted-foreground"
               )}
             >
+              {item.icon && <item.icon size={16} />}
               {item.name}
             </Link>
           ))}
@@ -103,7 +100,6 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden p-2 text-secondary"
@@ -113,7 +109,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <div
         className={cn(
           "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 lg:hidden transition-all duration-300 ease-in-out mobile-menu-container overflow-auto",
@@ -129,13 +124,14 @@ export default function Navbar() {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "text-lg font-medium py-3 border-b border-secondary/20 flex items-center",
+                  "text-lg font-medium py-3 border-b border-secondary/20 flex items-center gap-2",
                   location.pathname === item.path
                     ? "text-secondary"
                     : "text-muted-foreground"
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
+                {item.icon && <item.icon size={18} />}
                 {item.name}
               </Link>
             ))}
